@@ -1,15 +1,35 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap");
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+:root {
+  --cream: #FFFDF6;
+  --plum: #700144;
+  --plum-deep: #3C1B43;
+  --plum-tint: rgba(112, 1, 68, 0.2);
+  --sage: #CED78C;
+  --sage-dark: #B4BC79;
+  --text: #181818;
+  --text-soft: #595959;
+  --line: rgba(24, 24, 24, 0.16);
+  --white-glass: rgba(255, 253, 246, 0.16);
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
 }
