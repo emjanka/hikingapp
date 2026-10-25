@@ -1,0 +1,30 @@
+.blog-row-section {
+  margin-top: 24px;
+}
+
+.blog-row-section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.blog-row-section__header h2 {
+  font-size: 16px;
+}
+
+.blog-row-section__header a {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.blog-row-section__cards {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.blog-row-section__cards::-webkit-scrollbar {
+  display: none;
+}

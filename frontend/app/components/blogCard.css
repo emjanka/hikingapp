@@ -1,0 +1,59 @@
+.blog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 0 0 160px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--sage-dark);
+  background-size: cover;
+  background-position: center;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.blog-card:focus {
+  outline: none;
+}
+
+.blog-card:focus-visible {
+  outline: 2px solid var(--plum);
+  outline-offset: 2px;
+}
+
+.blog-card .save-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}
+
+.blog-card__text {
+  padding: 8px 12px 12px;
+  background: rgba(24, 24, 24, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.blog-card__text h3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 2.5em;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.blog-card__text p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  font-size: 12px;
+}

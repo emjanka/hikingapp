@@ -1,0 +1,16 @@
+.save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.save-button--saved {
+  color: var(--sage);
+}
