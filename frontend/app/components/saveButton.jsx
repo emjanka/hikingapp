@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { HeartStraightIcon } from "@phosphor-icons/react";
+import { HeartStraightIcon, BookmarkSimpleIcon } from "@phosphor-icons/react";
 import "./saveButton.css";
 
-export default function SaveButton() {
+export default function SaveButton({ icon = "heart" }) {
   const [saved, setSaved] = useState(false);
+  const Icon = icon === "bookmark" ? BookmarkSimpleIcon : HeartStraightIcon;
 
   function handleClick(event) {
     event.preventDefault();
@@ -17,7 +18,7 @@ export default function SaveButton() {
       onClick={handleClick}
       aria-label="Save"
     >
-      <HeartStraightIcon size={20} weight={saved ? "fill" : "regular"} />
+      <Icon size={20} weight={saved ? "fill" : "regular"} />
     </button>
   );
 }

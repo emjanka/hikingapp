@@ -13,8 +13,13 @@
 }
 
 .blog-row-section__header a {
-  color: var(--text);
+  color: var(--text-soft);
   font-size: 12px;
+  text-decoration: none;
+}
+
+.blog-row-section__header a:hover {
+  color: var(--plum);
 }
 
 .blog-row-section__cards {

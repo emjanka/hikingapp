@@ -1,0 +1,23 @@
+.blog-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 280px;
+  padding: 16px;
+  background-color: var(--sage-dark);
+  background-size: cover;
+  background-position: center;
+}
+
+.blog-hero__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--text);
+  cursor: pointer;
+}

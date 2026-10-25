@@ -1,0 +1,36 @@
+.blog-category {
+  padding: 24px 16px 120px;
+}
+
+.blog-category__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.blog-category__header h1 {
+  font-size: 18px;
+}
+
+.blog-category__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--cream);
+}
+
+.blog-category__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.blog-category__grid .blog-card {
+  flex: none;
+  width: 100%;
+}
