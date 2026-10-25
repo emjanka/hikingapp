@@ -27,3 +27,14 @@
   font-size: 15px;
   line-height: 1.6;
 }
+
+.blog-detail__disclosure {
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.blog-detail__sheet .blog-row-section {
+  margin-top: 32px;
+}
