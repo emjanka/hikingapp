@@ -22,6 +22,11 @@
   border-top: 1px solid var(--plum);
 }
 
+.blog-detail__body h2 {
+  margin: 20px 0 8px;
+  font-size: 16px;
+}
+
 .blog-detail__body p {
   margin-bottom: 12px;
   font-size: 15px;

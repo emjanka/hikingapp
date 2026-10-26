@@ -1,56 +1,51 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { supabase } from "../lib/supabaseClient";
+import { useLoaderData } from "react-router";
 import BlogHero from "../components/blogHero";
 import ArticleMeta from "../components/articleMeta";
 import ProductCard from "../components/productCard";
 import BlogRow from "../components/blogRow";
 import "./blogDetail.css";
 
-export default function BlogDetail() {
-  const { id } = useParams();
-  const [blog, setBlog] = useState(null);
-  const [products, setProducts] = useState([]);
-  const [related, setRelated] = useState([]);
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-  useEffect(() => {
-    async function getData() {
-      const blogResult = await supabase
-        .from("blogs")
-        .select("*")
-        .eq("id", id)
-        .single();
-      const productResult = await supabase
-        .from("blog_products")
-        .select("*")
-        .eq("blog_id", id);
-      const relatedResult = await supabase
-        .from("blogs")
-        .select("*")
-        .neq("id", id)
-        .limit(6);
+const headers = {
+  apikey: supabaseKey,
+  Authorization: `Bearer ${supabaseKey}`,
+};
 
-      if (blogResult.error) {
-        console.error(blogResult.error);
-      } else {
-        setBlog(blogResult.data);
-      }
-      setProducts(productResult.data ?? []);
-      setRelated(relatedResult.data ?? []);
-    }
-    getData();
-  }, [id]);
+export async function clientLoader({ params }) {
+  const [blogResponse, productsResponse, relatedResponse] = await Promise.all([
+    fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=eq.${params.id}`, { headers }),
+    fetch(`${supabaseUrl}/rest/v1/blog_products?select=*&blog_id=eq.${params.id}`, { headers }),
+    fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=neq.${params.id}&limit=6`, { headers }),
+  ]);
+
+  if (!blogResponse.ok || !productsResponse.ok || !relatedResponse.ok) {
+    throw new Error("Could not load the blog");
+  }
+
+  const blogs = await blogResponse.json();
+  const blog = blogs[0];
 
   if (!blog) {
-    return <p className="blog-detail__loading">Loading...</p>;
+    throw new Response("Blog not found", { status: 404 });
   }
+
+  const products = await productsResponse.json();
+  const related = await relatedResponse.json();
+
+  return { blog, products, related };
+}
+
+export default function BlogDetail() {
+  const { blog, products, related } = useLoaderData();
 
   const date = new Date(blog.published_at).toLocaleDateString("en-GB", {
     month: "short",
     year: "numeric",
   });
 
-  const paragraphs = blog.body.split("\n\n");
+  const paragraphs = blog.body.split("\n").filter((line) => line.trim() !== "");
 
   function productsAfter(index) {
     return products.filter(
@@ -68,7 +63,11 @@ export default function BlogDetail() {
         <div className="blog-detail__body">
           {paragraphs.map((paragraph, index) => (
             <div key={index}>
-              <p>{paragraph}</p>
+              {paragraph.startsWith("## ") ? (
+                <h2>{paragraph.slice(3)}</h2>
+              ) : (
+                <p>{paragraph}</p>
+              )}
               {productsAfter(index).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

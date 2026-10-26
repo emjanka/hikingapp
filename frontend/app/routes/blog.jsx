@@ -1,23 +1,28 @@
-import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { useLoaderData } from "react-router";
 import BlogRow from "../components/blogRow";
 import "./blog.css";
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export async function clientLoader() {
+  const response = await fetch(`${supabaseUrl}/rest/v1/blogs?select=*`, {
+    headers: {
+      apikey: supabaseKey,
+      Authorization: `Bearer ${supabaseKey}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Could not load blogs");
+  }
+
+  const blogs = await response.json();
+  return { blogs };
+}
+
 export default function Blog() {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    async function getBlogs() {
-      const { data, error } = await supabase.from("blogs").select("*");
-      if (error) {
-        console.error(error);
-      } else {
-        setBlogs(data);
-      }
-    }
-    getBlogs();
-  }, []);
-
+  const { blogs } = useLoaderData();
   const categories = [...new Set(blogs.map((blog) => blog.category))];
 
   return (

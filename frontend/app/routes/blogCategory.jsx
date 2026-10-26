@@ -1,28 +1,32 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
-import { supabase } from "../lib/supabaseClient";
 import BlogCard from "../components/blogCard";
 import "./blogCategory.css";
 
-export default function BlogCategory() {
-  const { category } = useParams();
-  const [blogs, setBlogs] = useState([]);
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-  useEffect(() => {
-    async function getBlogs() {
-      const { data, error } = await supabase
-        .from("blogs")
-        .select("*")
-        .eq("category", category);
-      if (error) {
-        console.error(error);
-      } else {
-        setBlogs(data);
-      }
-    }
-    getBlogs();
-  }, [category]);
+const headers = {
+  apikey: supabaseKey,
+  Authorization: `Bearer ${supabaseKey}`,
+};
+
+export async function clientLoader({ params }) {
+  const response = await fetch(
+    `${supabaseUrl}/rest/v1/blogs?select=*&category=eq.${encodeURIComponent(params.category)}`,
+    { headers },
+  );
+
+  if (!response.ok) {
+    throw new Error("Could not load blogs");
+  }
+
+  const blogs = await response.json();
+  return { category: params.category, blogs };
+}
+
+export default function BlogCategory() {
+  const { category, blogs } = useLoaderData();
 
   return (
     <main className="blog-category">

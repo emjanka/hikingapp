@@ -9,8 +9,9 @@
 
 .product-card__image {
   flex: none;
-  width: 68px;
-  height: 68px;
+  align-self: stretch;
+  width: 72px;
+  min-height: 72px;
   border-radius: 10px;
   background-color: #d9d6d0;
   background-size: cover;

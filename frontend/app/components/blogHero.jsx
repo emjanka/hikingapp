@@ -17,7 +17,7 @@ export default function BlogHero({ imageUrl }) {
       >
         <ArrowLeftIcon size={20} />
       </button>
-      <SaveButton icon="bookmark" />
+      <SaveButton />
     </div>
   );
 }
