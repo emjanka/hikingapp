@@ -1,0 +1,40 @@
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Thin line between rows (not above the first one) */
+.settings-row + .settings-row {
+  border-top: 1px solid var(--line);
+}
+
+.settings-row__icon {
+  flex-shrink: 0;
+  color: var(--plum);
+}
+
+.settings-row__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-row__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.settings-row__desc {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-soft);
+}
+
+.settings-row__arrow {
+  flex-shrink: 0;
+}

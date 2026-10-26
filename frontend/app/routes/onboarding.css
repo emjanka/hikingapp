@@ -1,0 +1,229 @@
+/* Full-height page, button sticks to the bottom (no bottom nav here) */
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 24px 24px;
+}
+
+.onboarding__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.onboarding__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.onboarding__button {
+  height: 40px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  background: var(--plum);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ---------- Titles (steps 2-4) ---------- */
+.step-title__heading {
+  font-size: 32px;
+  line-height: 35px;
+  color: var(--text);
+}
+
+.step-title__sub {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #313131;
+}
+
+/* ---------- Photo picker (step 1) ---------- */
+.photo-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.photo-picker__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97px;
+  height: 97px;
+  border: 1px dashed #bdbdbd;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--sage-dark);
+  overflow: hidden;
+}
+
+.photo-picker__circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-picker__text {
+  font-size: 14px;
+  color: #a1a1a1;
+}
+
+/* ---------- Text fields ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.field__label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.field__input {
+  width: 100%;
+  min-height: 38px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(206, 215, 140, 0.5);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.field__input::placeholder {
+  color: #818181;
+  font-size: 12px;
+}
+
+.field__input:focus {
+  outline: 2px solid var(--plum);
+}
+
+.field__input--textarea {
+  resize: vertical;
+  field-sizing: content; /* grows while you type (newer browsers) */
+}
+
+/* Input with the map pin on the right */
+.field__input-wrap {
+  position: relative;
+}
+
+.field__input-wrap .field__input {
+  padding-right: 40px;
+}
+
+.field__icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--sage-dark);
+  pointer-events: none;
+}
+
+.field__hint {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #a1a1a1;
+}
+
+/* ---------- Chips (step 2) ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.chip {
+  padding: 8px 16px;
+  border: 1px solid var(--sage-dark);
+  border-radius: 20px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip--selected {
+  background: var(--sage);
+}
+
+/* ---------- Level cards (step 3) ---------- */
+.level-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.level {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--sage);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.level--selected {
+  border-color: var(--plum);
+  background: var(--plum-tint);
+}
+
+.level__title {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #000;
+}
+
+.level__text {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #313131;
+}
+
+/* Round radio button styled like Figma */
+.level__radio {
+  appearance: none;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border: 1px solid #595959;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.level__radio:checked {
+  border-color: var(--plum);
+  background: radial-gradient(circle, var(--plum) 0 6px, transparent 6.5px);
+}

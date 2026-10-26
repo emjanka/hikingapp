@@ -7,4 +7,5 @@ export default [
   route("blog/category/:category", "routes/blogCategory.jsx"),
   route("blog/:id", "routes/blogDetail.jsx"),
   route("profile", "routes/profile.jsx"),
+  route("onboarding", "routes/onboarding.jsx"),
 ] satisfies RouteConfig;

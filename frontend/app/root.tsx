@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -43,10 +44,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  // No bottom nav during onboarding (matches Figma)
+  const { pathname } = useLocation();
+  const hideNav = pathname.startsWith("/onboarding");
+
   return (
     <>
       <Outlet />
-      <BottomNav />
+      {!hideNav && <BottomNav />}
     </>
   );
 }

@@ -1,0 +1,174 @@
+.profile {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 120px; /* bottom space so the bottom nav doesn't cover content */
+}
+
+/* ---------- Header ---------- */
+.profile__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile__title {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.profile__edit {
+  display: flex;
+  color: var(--text);
+}
+
+.profile__setup {
+  display: block;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--plum-tint);
+  color: var(--plum);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* ---------- Photo, name, facts ---------- */
+.profile__intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.profile__photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border: 2px solid var(--plum);
+  border-radius: 50%;
+  background: #e6eac1;
+  color: var(--plum);
+  overflow: hidden;
+}
+
+.profile__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile__name {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.profile__facts {
+  margin-top: 4px;
+}
+
+.profile__fact {
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.profile__fact dt {
+  color: var(--text-soft);
+}
+
+.profile__fact dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.profile__divider {
+  margin: 16px 0 0;
+  border: none;
+  border-top: 1px solid var(--plum);
+}
+
+/* ---------- Sections ---------- */
+.profile__section {
+  margin-top: 24px;
+}
+
+.profile__heading {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.profile__heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.profile__small-link {
+  font-size: 12px;
+  color: #313131;
+}
+
+.profile__about {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ---------- Stats ---------- */
+.profile__stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.profile__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__stat-icon {
+  color: var(--plum);
+}
+
+.profile__stat-number {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.profile__stat-label {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+/* ---------- Sideways scrolling rows (stamps, hike history) ---------- */
+.profile__scroll-row {
+  display: flex;
+  gap: 16px;
+  margin: 8px -20px 0;
+  padding: 4px 20px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.profile__scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.profile__scroll-row > * {
+  flex-shrink: 0;
+}
+
+/* ---------- Settings card ---------- */
+.profile__settings {
+  margin-top: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #e6eac1;
+}

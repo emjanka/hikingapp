@@ -1,0 +1,46 @@
+/*
+ * The wavy stamp edge: the outer box is plum with round "bites"
+ * (transparent circles) every 15px, and the inner box covers the middle
+ * so the bites only show around the border.
+ */
+.stamp {
+  width: 90px;
+  height: 105px;
+  padding: 5px;
+  flex-shrink: 0;
+  background: radial-gradient(circle, transparent 4.5px, var(--plum) 5px) -7.5px -7.5px / 15px 15px;
+}
+
+.stamp__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  padding-top: 10px;
+  background: var(--plum);
+}
+
+.stamp__picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 7px;
+  background: #e6eac1;
+  color: var(--plum);
+}
+
+.stamp__label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #e6eac1;
+  white-space: nowrap;
+}
+
+/* Stamps you haven't earned yet are faded */
+.stamp--locked {
+  opacity: 0.5;
+}
