@@ -1,0 +1,21 @@
+/* One buddy: photo on top, name below */
+.buddy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 76px;
+}
+
+/* Round photo; object-fit crops it to fill the circle without stretching */
+.buddy__img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.buddy__name {
+  font-size: 14px;
+  text-align: center;
+}

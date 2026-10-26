@@ -1,0 +1,46 @@
+/* Space between one section and the next */
+.section {
+  margin-top: 32px;
+}
+
+/* Title on the left, "See all" link on the right */
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 24px;
+}
+
+.section__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section__link {
+  font-size: 14px;
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Row of cards that scrolls sideways, like in the Figma design */
+.section__row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  /* Hide the scrollbar (it still scrolls) */
+  scrollbar-width: none;
+}
+
+.section__row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each child keeps its size and snaps into place when scrolling */
+.section__row > * {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
