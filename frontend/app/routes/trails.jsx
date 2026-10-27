@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import TrailCard from "../components/trailCard";
+import TrailCard from "../components/TrailCard";
 import "./trails.css";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;

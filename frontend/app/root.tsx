@@ -11,6 +11,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import BottomNav from "./components/bottomNav";
+import TopNav from "./components/topNav";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -50,10 +51,15 @@ export default function App() {
 
   return (
     <>
+      <TopNav />
       <Outlet />
       {!hideNav && <BottomNav />}
     </>
   );
+}
+
+export function HydrateFallback() {
+  return <p>Loading...</p>;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

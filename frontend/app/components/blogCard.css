@@ -12,6 +12,7 @@
   background-position: center;
   color: var(--cream);
   text-decoration: none;
+  isolation: isolate;
 }
 
 .blog-card:focus {

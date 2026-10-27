@@ -27,7 +27,6 @@ export default function Blog() {
 
   return (
     <main className="blog-page">
-      <h1>Blog</h1>
       {categories.map((category) => (
         <BlogRow
           key={category}
