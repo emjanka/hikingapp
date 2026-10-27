@@ -32,7 +32,7 @@ export default function Blog() {
         <BlogRow
           key={category}
           title={category}
-          blogs={blogs.filter((blog) => blog.category === category)}
+          blogs={blogs.filter((blog) => blog.category?.trim() === category)}
         />
       ))}
     </main>

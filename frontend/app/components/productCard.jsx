@@ -1,4 +1,5 @@
 import "./productCard.css";
+import { ArrowUpRight } from "@phosphor-icons/react";
 
 export default function ProductCard({ product }) {
   const imageStyle = product.image_url
@@ -21,7 +22,7 @@ export default function ProductCard({ product }) {
             rel="noopener noreferrer sponsored"
             className="product-card__buy"
           >
-            Buy
+            Buy <ArrowUpRight size={16} weight="regular" />
           </a>
         </div>
       </div>
