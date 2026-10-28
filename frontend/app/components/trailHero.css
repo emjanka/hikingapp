@@ -1,0 +1,45 @@
+/* Big card, about the width of a phone screen minus the page padding */
+.trail-hero {
+  position: relative;
+  width: 340px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.trail-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark gradient over the bottom half of the photo */
+.trail-hero__info {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 40px 16px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+/* Difficulty badge floats on the right */
+.trail-hero__badge {
+  position: absolute;
+  right: 12px;
+  bottom: 56px;
+}
+
+.trail-hero__name {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.trail-hero__location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 0;
+  font-size: 15px;
+}
