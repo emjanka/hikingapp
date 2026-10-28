@@ -3,18 +3,15 @@ import Section from "../components/Section";
 import BuddyAvatar from "../components/BuddyAvatar";
 import TrailHero from "../components/trailHero";
 import GroupTrailCard from "../components/GroupTrailCards";
-import BlogCard from "../components/blogCard";
-import TopNav from "~/components/topNav";
 import "./explore.css";
 
 // Supabase connection details come from the .env file
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-// Runs in the browser before the page shows (same pattern as trails.jsx).
-// Fetches all rows from the "buddies" table in Supabase.
-export async function clientLoader() {
-  const response = await fetch(`${supabaseUrl}/rest/v1/hikingbuddies?select=*`, {
+// Fetches all rows of one Supabase table (same approach as trails.jsx)
+async function fetchTable(table) {
+  const response = await fetch(`${supabaseUrl}/rest/v1/${table}?select=*`, {
     headers: {
       apikey: supabaseKey,
       Authorization: `Bearer ${supabaseKey}`,
@@ -22,21 +19,29 @@ export async function clientLoader() {
   });
 
   if (!response.ok) {
-    throw new Error("Could not load buddies");
+    throw new Error(`Could not load ${table}`);
   }
 
-  const buddies = await response.json();
-  return { buddies };
+  return response.json();
+}
+
+// Runs in the browser before the page shows.
+// Promise.all loads both tables at the same time.
+export async function clientLoader() {
+  const [buddies, trails] = await Promise.all([
+    fetchTable("hikingbuddies"),
+    fetchTable("trails"),
+  ]);
+  return { buddies, trails };
 }
 
 export default function Explore() {
   // The data returned by clientLoader above
-  const { buddies } = useLoaderData();
+  const { buddies, trails } = useLoaderData();
 
   return (
     <main className="explore">
       <Section title="Hiking buddies" seeAllTo="/buddies">
-        {/* One round avatar per row in the buddies table */}
         {buddies.map((buddy) => (
           <BuddyAvatar
             key={buddy.id}
@@ -47,15 +52,21 @@ export default function Explore() {
       </Section>
 
       <Section title="Trails for you" seeAllTo="/trails">
-        {/* FeaturedTrailCard */}
+        {/* First 3 trails for now; real personalisation can come later */}
+        {trails.slice(0, 3).map((trail) => (
+          <TrailHero key={trail.id} trail={trail} />
+        ))}
       </Section>
 
       <Section title="Period problems?" seeAllTo="/blog">
-        {/* blogCard */}
+        {/* Emilija's blogCard goes here (needs her component, see message) */}
       </Section>
 
       <Section title="Trails for groups" seeAllTo="/trails">
-        {/* GroupTrailCard */}
+        {/* Later: filter with a "group friendly" column */}
+        {trails.slice(3, 8).map((trail) => (
+          <GroupTrailCard key={trail.id} trail={trail} />
+        ))}
       </Section>
     </main>
   );
