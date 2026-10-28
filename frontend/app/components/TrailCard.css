@@ -1,4 +1,4 @@
-.group-card {
+.trail-card {
   position: relative;
   width: 280px;
   height: 200px;
@@ -8,39 +8,39 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.group-card__img {
+.trail-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.group-card__save {
+.trail-card__save {
   position: absolute;
   top: 12px;
   right: 12px;
 }
 
-.group-card__info {
+.trail-card__info {
   position: absolute;
   inset: auto 0 0 0;
   padding: 36px 12px 12px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
 }
 
-.group-card__title-row {
+.trail-card__title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
 }
 
-.group-card__name {
+.trail-card__name {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
 }
 
-.group-card__location {
+.trail-card__location {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -49,12 +49,12 @@
   font-weight: 400;
 }
 
-.group-card__chips {
+.trail-card__chips {
   display: flex;
   gap: 8px;
 }
 
-.group-card__chip {
+.trail-card__chip {
   display: flex;
   align-items: center;
   gap: 4px;

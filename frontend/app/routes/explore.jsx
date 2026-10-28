@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router";
 import Section from "../components/Section";
 import BuddyAvatar from "../components/BuddyAvatar";
 import TrailHero from "../components/trailHero";
-import GroupTrailCard from "../components/GroupTrailCards";
+import TrailCard from "../components/TrailCard";
 import "./explore.css";
 
 // Supabase connection details come from the .env file
