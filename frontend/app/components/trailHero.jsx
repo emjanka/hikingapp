@@ -1,7 +1,7 @@
 import { MapPin } from "@phosphor-icons/react";
 import SaveButton from "./saveButton";
-import Difficultybadge from "./Difficultybadge";
-import "./TrailHero.css";
+import DifficultyBadge from "./Difficultybadge";
+import "./trailHero.css";
 
 /**
  * TrailHero

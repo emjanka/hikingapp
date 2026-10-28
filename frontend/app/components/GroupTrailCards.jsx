@@ -1,7 +1,7 @@
 import { MapPin, Path, Mountains } from "@phosphor-icons/react";
-import saveButton from "./saveButton";
+import SaveButton from "./saveButton";
 import DifficultyBadge from "./Difficultybadge";
-import "./GroupTrailCard.css";
+import "./GroupTrailCards.css";
 
 /**
  * GroupTrailCard

@@ -1,4 +1,4 @@
-import "./DifficultyBadge.css";
+import "./Difficultybadge.css";
 
 /**
  * DifficultyBadge
