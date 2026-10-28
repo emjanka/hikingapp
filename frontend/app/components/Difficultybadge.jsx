@@ -2,12 +2,17 @@ import "./Difficultybadge.css";
 
 /**
  * DifficultyBadge
- * Dark pink pill with the trail difficulty, e.g. "Moderate".
+ * Small pill showing the trail level ("Easy", "Moderate", ...).
+ * The colour depends on the level (see Difficultybadge.css).
  *
  * Props:
- *  - level: the difficulty text from the trails table
+ *  - level: the "level" column from the trails table
  */
 export default function DifficultyBadge({ level }) {
   if (!level) return null;
-  return <span className="difficulty">{level}</span>;
+
+  // "Moderate" -> "difficulty--moderate"
+  const modifier = `difficulty--${level.toLowerCase().replace(" ", "-")}`;
+
+  return <span className={`difficulty ${modifier}`}>{level}</span>;
 }

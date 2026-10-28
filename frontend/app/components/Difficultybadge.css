@@ -1,8 +1,19 @@
 .difficulty {
   padding: 4px 14px;
   border-radius: 999px;
-  background: #8c2f50;
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+}
+/* One colour per level (from Figma) */
+.difficulty--easy {
+  background: #b8c480;
+}
+
+.difficulty--moderate {
+  background: #922c50;
+}
+
+.difficulty--hard {
+  background: #3c1b43;
 }

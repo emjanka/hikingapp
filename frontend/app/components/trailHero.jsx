@@ -5,32 +5,35 @@ import "./trailHero.css";
 
 /**
  * TrailHero
- * The big featured trail card used in "Trails for you".
+ * The big featured trail card ("Trails for you", "Recommended Trails").
  *
  * Props:
  *  - trail: one row from the Supabase "trails" table
- *           (uses name, location, difficulty, image_url)
+ *           (uses name, location, level, image_url)
  */
 export default function TrailHero({ trail }) {
   return (
     <article className="trail-hero">
-      {/* The photo lives in frontend/public, so we add a "/" in front */}
+      {/* image_url already starts with "/", so no extra slash here */}
       <img
         className="trail-hero__img"
-       src={trail.image_url}
+        src={trail.image_url}
         alt={trail.name}
       />
 
-      <SaveButton />
+      {/* Save heart in the top-right corner */}
+      <div className="trail-hero__save">
+        <SaveButton trail={trail} />
+      </div>
 
-      {/* Text sits on top of a dark gradient so it stays readable */}
+      {/* Text sits on a dark gradient so it stays readable */}
       <div className="trail-hero__info">
-        <div className="trail-hero__badge">
-          <DifficultyBadge level={trail.difficulty} />
+        <div className="trail-hero__title-row">
+          <h3 className="trail-hero__name">{trail.name}</h3>
+          <DifficultyBadge level={trail.level} />
         </div>
-        <h3 className="trail-hero__name">{trail.name}</h3>
         <p className="trail-hero__location">
-          <MapPin size={18} /> {trail.location}
+          <MapPin size={16} /> {trail.location}
         </p>
       </div>
     </article>
