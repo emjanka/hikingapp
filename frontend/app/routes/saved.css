@@ -25,32 +25,23 @@
   cursor: pointer;
 }
 
-.saved-page__empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 32px;
-  text-align: center;
+.saved-page__section {
+  margin-top: 40px;
 }
 
-.saved-page__title {
-  color: var(--text-soft);
-  font-size: 28px;
+.saved-page__section h2 {
+  margin-bottom: 12px;
+  font-size: 16px;
 }
 
-.saved-page__image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 140px;
-  margin: 16px 0;
-  border-radius: 16px;
-  background: rgba(206, 215, 140, 0.5);
-  color: var(--plum);
+.saved-page__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
 }
 
-.saved-page__empty a {
-  color: var(--text-soft);
-  font-size: 14px;
+.saved-page__grid .blog-card {
+  flex: none;
+  width: 100%;
 }

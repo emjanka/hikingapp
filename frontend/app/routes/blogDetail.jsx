@@ -49,14 +49,13 @@ export default function BlogDetail() {
 
   function productsAfter(index) {
     return products.filter(
-      (product, productIndex) =>
-        Math.min(productIndex * 2 + 1, paragraphs.length - 1) === index
+      (product) => Math.min(product.position, paragraphs.length) - 1 === index
     );
   }
 
   return (
     <main className="blog-detail">
-      <BlogHero imageUrl={blog.image_url} />
+      <BlogHero imageUrl={blog.image_url} blogId={blog.id} />
       <article className="blog-detail__sheet">
         <h1>{blog.title}</h1>
         <ArticleMeta readTime={blog.read_time} date={date} author={blog.author} />
