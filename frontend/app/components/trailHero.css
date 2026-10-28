@@ -49,3 +49,21 @@
   font-size: 13px;
   font-weight: 400;
 }
+
+.trail-hero__chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.trail-hero__chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 500;
+}

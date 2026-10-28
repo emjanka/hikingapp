@@ -23,7 +23,7 @@ export default function TrailCard({ trail }) {
       />
 
       <div className="trail-card__save">
-        <SaveButton trail={trail} />
+         <SaveButton type="trail" id={trail.id} />
       </div>
 
       <div className="trail-card__info">
@@ -37,14 +37,14 @@ export default function TrailCard({ trail }) {
         </p>
 
         {/* Two white chips: distance and elevation gain */}
-        <div className="trail-card__chips">
-          <span className="trail-card__chip">
-            <Path size={16} /> {trail.length_km} km
-          </span>
-          <span className="trail-card__chip">
-            <Mountains size={16} /> + {trail.elevation_gain} m
-          </span>
-        </div>
+        <div className="trail-hero__chips">
+  <span className="trail-hero__chip">
+    <Path size={16} /> {trail.length_km} km
+  </span>
+  <span className="trail-hero__chip">
+    <Mountains size={16} /> + {trail.elevation_gain} m
+  </span>
+</div>
       </div>
     </article>
   );

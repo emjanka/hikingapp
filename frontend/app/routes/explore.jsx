@@ -3,6 +3,7 @@ import Section from "../components/Section";
 import BuddyAvatar from "../components/BuddyAvatar";
 import TrailHero from "../components/trailHero";
 import TrailCard from "../components/TrailCard";
+import BlogCard from "../components/blogCard";
 import "./explore.css";
 
 // Supabase connection details come from the .env file
@@ -26,18 +27,19 @@ async function fetchTable(table) {
 }
 
 // Runs in the browser before the page shows.
-// Promise.all loads both tables at the same time.
+// Promise.all loads all three tables at the same time.
 export async function clientLoader() {
-  const [buddies, trails] = await Promise.all([
+  const [buddies, trails, blogs] = await Promise.all([
     fetchTable("hikingbuddies"),
     fetchTable("trails"),
+    fetchTable("blogs"),
   ]);
-  return { buddies, trails };
+  return { buddies, trails, blogs };
 }
 
 export default function Explore() {
   // The data returned by clientLoader above
-  const { buddies, trails } = useLoaderData();
+  const { buddies, trails, blogs } = useLoaderData();
 
   return (
     <main className="explore">
@@ -59,13 +61,16 @@ export default function Explore() {
       </Section>
 
       <Section title="Period problems?" seeAllTo="/blog">
-        {/* Emilija's blogCard goes here (needs her component, see message) */}
+        {/* Emilija's blog cards, first 5 articles for now */}
+        {blogs.slice(0, 5).map((blog) => (
+          <BlogCard key={blog.id} blog={blog} />
+        ))}
       </Section>
 
       <Section title="Trails for groups" seeAllTo="/trails">
         {/* Later: filter with a "group friendly" column */}
         {trails.slice(3, 8).map((trail) => (
-          <GroupTrailCard key={trail.id} trail={trail} />
+          <TrailCard key={trail.id} trail={trail} />
         ))}
       </Section>
     </main>

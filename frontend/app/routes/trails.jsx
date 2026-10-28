@@ -40,20 +40,20 @@ export default function Trails() {
       <Section title="Solo Trails" seeAllTo="/trails">
         {/* Later: filter with a "solo friendly" column */}
         {trails.slice(1, 6).map((trail) => (
-          <GroupTrailCard key={trail.id} trail={trail} />
+          <TrailCard key={trail.id} trail={trail} />
         ))}
       </Section>
 
       <Section title="Trails for groups" seeAllTo="/trails">
         {/* Later: filter with a "group friendly" column */}
-        {trails.slice(4, 9).map((trail) => (
-          <GroupTrailCard key={trail.id} trail={trail} />
+        {trails.slice(3, 8).map((trail) => (
+          <TrailCard key={trail.id} trail={trail} />
         ))}
       </Section>
 
       <Section title="All Trails" seeAllTo="/trails">
         {trails.map((trail) => (
-          <GroupTrailCard key={trail.id} trail={trail} />
+          <TrailCard key={trail.id} trail={trail} />
         ))}
       </Section>
     </main>

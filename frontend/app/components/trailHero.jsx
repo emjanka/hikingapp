@@ -1,4 +1,4 @@
-import { MapPin } from "@phosphor-icons/react";
+import { MapPin, Path, Mountains } from "@phosphor-icons/react";
 import SaveButton from "./saveButton";
 import DifficultyBadge from "./Difficultybadge";
 import "./trailHero.css";
@@ -9,7 +9,8 @@ import "./trailHero.css";
  *
  * Props:
  *  - trail: one row from the Supabase "trails" table
- *           (uses name, location, level, image_url)
+ *           (uses name, location, level, image_url,
+ *            length_km, elevation_gain)
  */
 export default function TrailHero({ trail }) {
   return (
@@ -21,9 +22,9 @@ export default function TrailHero({ trail }) {
         alt={trail.name}
       />
 
-      {/* Save heart in the top-right corner */}
+      {/* Save heart, used the same way as in blogCard.jsx */}
       <div className="trail-hero__save">
-        <SaveButton trail={trail} />
+        <SaveButton type="trail" id={trail.id} />
       </div>
 
       {/* Text sits on a dark gradient so it stays readable */}
@@ -32,9 +33,20 @@ export default function TrailHero({ trail }) {
           <h3 className="trail-hero__name">{trail.name}</h3>
           <DifficultyBadge level={trail.level} />
         </div>
+
         <p className="trail-hero__location">
           <MapPin size={16} /> {trail.location}
         </p>
+
+        {/* Two white chips: distance and elevation gain */}
+        <div className="trail-hero__chips">
+          <span className="trail-hero__chip">
+            <Path size={16} /> {trail.length_km} km
+          </span>
+          <span className="trail-hero__chip">
+            <Mountains size={16} /> + {trail.elevation_gain} m
+          </span>
+        </div>
       </div>
     </article>
   );
