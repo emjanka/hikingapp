@@ -1,0 +1,29 @@
+.saved-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.saved-empty__title {
+  color: var(--text-soft);
+  font-size: 28px;
+}
+
+.saved-empty__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  margin: 16px 0;
+  border-radius: 16px;
+  background: rgba(206, 215, 140, 0.5);
+  color: var(--plum);
+}
+
+.saved-empty a {
+  color: var(--text-soft);
+  font-size: 14px;
+}

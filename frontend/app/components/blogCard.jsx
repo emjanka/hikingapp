@@ -10,7 +10,7 @@ export default function BlogCard({ blog }) {
 
   return (
     <Link to={`/blog/${blog.id}`} className="blog-card" style={imageStyle}>
-      <SaveButton />
+      <SaveButton type="blog" id={blog.id} />
       <div className="blog-card__text">
         <h3>{blog.title}</h3>
         <p>
