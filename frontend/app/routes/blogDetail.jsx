@@ -17,7 +17,10 @@ export async function clientLoader({ params }) {
   const [blogResponse, productsResponse, relatedResponse] = await Promise.all([
     fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=eq.${params.id}`, { headers }),
     fetch(`${supabaseUrl}/rest/v1/blog_products?select=*&blog_id=eq.${params.id}`, { headers }),
-    fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=neq.${params.id}&limit=6`, { headers }),
+    fetch(
+      `${supabaseUrl}/rest/v1/blogs?select=id,title,category,image_url,read_time&id=neq.${params.id}&limit=6`,
+      { headers },
+    ),
   ]);
 
   if (!blogResponse.ok || !productsResponse.ok || !relatedResponse.ok) {
@@ -49,14 +52,13 @@ export default function BlogDetail() {
 
   function productsAfter(index) {
     return products.filter(
-      (product, productIndex) =>
-        Math.min(productIndex * 2 + 1, paragraphs.length - 1) === index
+      (product) => Math.min(product.position, paragraphs.length) - 1 === index
     );
   }
 
   return (
     <main className="blog-detail">
-      <BlogHero imageUrl={blog.image_url} />
+      <BlogHero imageUrl={blog.image_url} blogId={blog.id} />
       <article className="blog-detail__sheet">
         <h1>{blog.title}</h1>
         <ArticleMeta readTime={blog.read_time} date={date} author={blog.author} />

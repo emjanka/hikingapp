@@ -14,7 +14,7 @@ import {
 } from "@phosphor-icons/react";
 import Stamp from "../components/Stamp";
 import SettingsRow from "../components/SettingsRow";
-import HikeHistoryCard from "../components/HikeHistoryCard";
+import TrailCard from "../components/TrailCard";
 import { loadProfile } from "../lib/profileStorage";
 import "./profile.css";
 
@@ -40,30 +40,41 @@ const stamps = [
   { label: "Stamp" },
 ];
 
-const hikeHistory = [
-  { name: "Hærvejen Countryside", region: "Jutland", distance: "8 km", elevation: "+ 60 m", difficulty: "Easy", image: "/images/hikebackpack.jpg" },
-  { name: "Stevns Klint", region: "South Zealand", distance: "6 km", elevation: "+ 50 m", difficulty: "Easy", image: "/images/packinghiking.jpg" },
-  { name: "Møns Klint", region: "Møn, Zealand", distance: "5 km", elevation: "+ 150 m", difficulty: "Moderate", image: "/images/hikebackpack.jpg" },
-  { name: "Thy Dune", region: "North Zealand", distance: "6 km", elevation: "+ 40 m", difficulty: "Easy", image: "/images/packinghiking.jpg" },
-];
+
+// Supabase connection details come from the .env file
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Runs in the browser before the page shows (same pattern as the other pages)
 export async function clientLoader() {
   const saved = loadProfile();
-  return { profile: saved || exampleProfile, isExample: !saved };
+
+  // Hike history: the first 4 trails for now.
+  // TODO: only show trails the user has actually hiked.
+  // If loading fails, the rest of the profile still shows.
+  let hikeHistory = [];
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/trails?select=*&limit=4`, {
+      headers: {
+        apikey: supabaseKey,
+        Authorization: `Bearer ${supabaseKey}`,
+      },
+    });
+    if (response.ok) hikeHistory = await response.json();
+  } catch {
+    // no internet / Supabase down → empty hike history
+  }
+
+  return { profile: saved || exampleProfile, isExample: !saved, hikeHistory };
 }
 
 export default function Profile() {
-  const { profile, isExample } = useLoaderData();
+  const { profile, isExample, hikeHistory } = useLoaderData();
 
   return (
     <main className="profile">
-      <div className="profile__header">
-        <h1 className="profile__title">Profile</h1>
-        <Link to="/onboarding" className="profile__edit" aria-label="Edit profile">
-          <PencilSimpleIcon size={24} />
-        </Link>
-      </div>
+      {/* The edit button is in the TopNav (top right) */}
+      <h1 className="profile__title">Profile</h1>
 
       {isExample && (
         <Link to="/onboarding" className="profile__setup">
@@ -117,8 +128,8 @@ export default function Profile() {
       <section className="profile__section">
         <h2 className="profile__heading">My hike history</h2>
         <div className="profile__scroll-row">
-          {hikeHistory.map((hike) => (
-            <HikeHistoryCard key={hike.name} {...hike} />
+          {hikeHistory.map((trail) => (
+            <TrailCard key={trail.id} trail={trail} />
           ))}
         </div>
       </section>

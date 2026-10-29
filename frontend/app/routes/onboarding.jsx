@@ -80,7 +80,11 @@ export default function Onboarding() {
   }
 
   function handleBack() {
-    if (step === 1) navigate(-1);
+    if (step === 1) {
+      // Go back if there's a page to go back to, otherwise to sign up
+      if (window.history.state?.idx > 0) navigate(-1);
+      else navigate("/signup");
+    }
     else setStep(step - 1);
   }
 
@@ -91,7 +95,7 @@ export default function Onboarding() {
       window.scrollTo(0, 0);
     } else {
       saveProfile(profile);
-      navigate("/profile");
+      navigate("/"); // onboarding done → into the app (Explore)
     }
   }
 

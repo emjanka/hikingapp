@@ -5,12 +5,16 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  redirect,
   useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import BottomNav from "./components/bottomNav";
+import TopNav from "./components/topNav";
+import { supabase } from "./lib/supabaseClient";
+import { loadProfile } from "./lib/profileStorage";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -43,6 +47,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Runs once when the app is opened (before any page shows).
+// New users are sent to sign up first, then onboarding.
+const startPages = ["/signup", "/login", "/onboarding"];
+
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
+  const { pathname } = new URL(request.url);
+  if (startPages.some((page) => pathname.startsWith(page))) return null;
+
+  // 1. Not logged in → Sign up
+  const { data } = await supabase.auth.getSession();
+  if (!data.session) throw redirect("/signup");
+
+  // 2. Logged in, but onboarding not done yet → Onboarding
+  if (!loadProfile()) throw redirect("/onboarding");
+
+  return null;
+}
+
 export default function App() {
   // No bottom nav on sign up, log in and onboarding (matches Figma)
   const { pathname } = useLocation();
@@ -52,10 +74,15 @@ export default function App() {
 
   return (
     <>
+      <TopNav />
       <Outlet />
       {!hideNav && <BottomNav />}
     </>
   );
+}
+
+export function HydrateFallback() {
+  return <p>Loading...</p>;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

@@ -1,0 +1,69 @@
+.trail-hero {
+  position: relative;
+  width: 340px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.trail-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trail-hero__save {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+/* Dark gradient over the bottom of the photo */
+.trail-hero__info {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 36px 14px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.trail-hero__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.trail-hero__name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.trail-hero__location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 2px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.trail-hero__chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.trail-hero__chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 500;
+}

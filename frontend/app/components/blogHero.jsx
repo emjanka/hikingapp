@@ -3,7 +3,7 @@ import { ArrowLeftIcon } from "@phosphor-icons/react";
 import SaveButton from "./saveButton";
 import "./blogHero.css";
 
-export default function BlogHero({ imageUrl }) {
+export default function BlogHero({ imageUrl, blogId }) {
   const navigate = useNavigate();
   const imageStyle = imageUrl ? { backgroundImage: `url(${imageUrl})` } : {};
 
@@ -17,7 +17,7 @@ export default function BlogHero({ imageUrl }) {
       >
         <ArrowLeftIcon size={20} />
       </button>
-      <SaveButton />
+      <SaveButton type="blog" id={blogId} />
     </div>
   );
 }

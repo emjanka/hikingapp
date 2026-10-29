@@ -4,6 +4,7 @@ import "./blogRow.css";
 
 export default function BlogRow({ title, blogs, seeAllTo }) {
   const link = seeAllTo ?? `/blog/category/${encodeURIComponent(title)}`;
+  const visibleBlogs = blogs.slice(0, 4);
 
   return (
     <section className="blog-row-section">
@@ -12,7 +13,7 @@ export default function BlogRow({ title, blogs, seeAllTo }) {
         <Link to={link}>See all &gt;</Link>
       </div>
       <div className="blog-row-section__cards">
-        {blogs.map((blog) => (
+        {visibleBlogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
         ))}
       </div>

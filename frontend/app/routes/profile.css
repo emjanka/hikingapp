@@ -1,24 +1,13 @@
 .profile {
   max-width: 480px;
   margin: 0 auto;
-  padding: 24px 20px 120px; /* bottom space so the bottom nav doesn't cover content */
+  padding: 16px 20px 120px; /* bottom space so the bottom nav doesn't cover content */
 }
 
 /* ---------- Header ---------- */
-.profile__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .profile__title {
   font-size: 22px;
   line-height: 28px;
-}
-
-.profile__edit {
-  display: flex;
-  color: var(--text);
 }
 
 .profile__setup {

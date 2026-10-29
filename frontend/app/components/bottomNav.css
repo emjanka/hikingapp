@@ -8,6 +8,7 @@
   padding: 8px 16px 20px;
   background: var(--cream);
   border-top: 1px solid var(--line);
+  z-index: 20;
 }
 
 .bottom-nav__tab {

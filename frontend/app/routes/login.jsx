@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import PasswordInput from "../components/PasswordInput";
 import { supabase } from "../lib/supabaseClient";
+import { loadProfile } from "../lib/profileStorage";
 import "./onboarding.css"; // shared form styles (fields, button)
 import "./auth.css";
 
@@ -23,7 +24,8 @@ export default function LogIn() {
     setLoading(false);
 
     if (error) setError(error.message);
-    else navigate("/profile");
+    // Onboarding done before? → app. Otherwise → onboarding first.
+    else navigate(loadProfile() ? "/" : "/onboarding");
   }
 
   // Sends a "reset your password" email via Supabase
