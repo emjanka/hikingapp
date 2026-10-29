@@ -6,6 +6,10 @@
   overflow: hidden;
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 280px;
 }
 
 .trail-card__img {

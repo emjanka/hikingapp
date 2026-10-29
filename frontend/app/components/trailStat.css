@@ -1,0 +1,24 @@
+.trail-stat {
+  min-width: 0;
+}
+
+.trail-stat__value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Burgundy icons, like in the Figma */
+.trail-stat__icon {
+  display: flex;
+  color: #922c50;
+}
+
+.trail-stat__label {
+  margin: 4px 0 0 32px; /* lines the label up with the value text */
+  font-size: 14px;
+  color: #6b6b6b;
+}

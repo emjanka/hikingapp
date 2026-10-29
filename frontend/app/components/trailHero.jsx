@@ -1,4 +1,5 @@
 import { MapPin, Path, Mountains } from "@phosphor-icons/react";
+import { Link } from "react-router";
 import SaveButton from "./saveButton";
 import DifficultyBadge from "./Difficultybadge";
 import "./trailHero.css";
@@ -14,7 +15,7 @@ import "./trailHero.css";
  */
 export default function TrailHero({ trail }) {
   return (
-    <article className="trail-hero">
+    <Link to={`/trail/${trail.id}`} className="trail-hero">
       {/* image_url already starts with "/", so no extra slash here */}
       <img
         className="trail-hero__img"
@@ -48,6 +49,6 @@ export default function TrailHero({ trail }) {
           </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

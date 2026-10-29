@@ -1,4 +1,5 @@
 import { MapPin, Path, Mountains } from "@phosphor-icons/react";
+import { Link } from "react-router";
 import SaveButton from "./saveButton";
 import DifficultyBadge from "./Difficultybadge";
 import "./smallTrailCard.css";
@@ -15,7 +16,7 @@ import "./smallTrailCard.css";
  */
 export default function SmallTrailCard({ trail }) {
   return (
-    <article className="small-card">
+    <Link to={`/trail/${trail.id}`} className="small-card">
       <img
         className="small-card__img"
         src={trail.image_url}
@@ -50,6 +51,6 @@ export default function SmallTrailCard({ trail }) {
           </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
