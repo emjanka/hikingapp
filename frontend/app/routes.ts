@@ -9,4 +9,5 @@ export default [
   route("profile", "routes/profile.jsx"),
   route("onboarding", "routes/onboarding.jsx"),
   route("saved", "routes/saved.jsx"),
+  route("trails/:list", "routes/trailList.jsx"),
 ] satisfies RouteConfig;

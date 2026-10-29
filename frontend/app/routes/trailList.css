@@ -1,0 +1,39 @@
+.trail-list {
+  padding: 16px 24px 110px; /* bottom space keeps the last row above the nav */
+}
+
+/* Back arrow + title */
+.trail-list__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.trail-list__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f3f1e6;
+  color: inherit;
+}
+
+.trail-list__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Two equal columns; cards stretch to fill their column */
+.trail-list__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.trail-list__grid > * {
+  width: 100%;
+}

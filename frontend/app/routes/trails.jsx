@@ -30,28 +30,28 @@ export default function Trails() {
 
   return (
     <main className="trails">
-      <Section title="Recommended Trails" seeAllTo="/trails">
+      <Section title="Recommended Trails" seeAllTo="/trails/recommended">
         {/* Big cards, like on the Explore page */}
         {trails.slice(0, 3).map((trail) => (
           <TrailHero key={trail.id} trail={trail} />
         ))}
       </Section>
 
-      <Section title="Solo Trails" seeAllTo="/trails">
+      <Section title="Solo Trails" seeAllTo="/trails/solo">
         {/* Later: filter with a "solo friendly" column */}
         {trails.slice(1, 6).map((trail) => (
           <TrailCard key={trail.id} trail={trail} />
         ))}
       </Section>
 
-      <Section title="Trails for groups" seeAllTo="/trails">
+      <Section title="Trails for groups" seeAllTo="/trails/groups">
         {/* Later: filter with a "group friendly" column */}
         {trails.slice(3, 8).map((trail) => (
           <TrailCard key={trail.id} trail={trail} />
         ))}
       </Section>
 
-      <Section title="All Trails" seeAllTo="/trails">
+      <Section title="All Trails" seeAllTo="/trails/all">
         {trails.map((trail) => (
           <TrailCard key={trail.id} trail={trail} />
         ))}

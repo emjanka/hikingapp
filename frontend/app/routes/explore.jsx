@@ -53,7 +53,7 @@ export default function Explore() {
         ))}
       </Section>
 
-      <Section title="Trails for you" seeAllTo="/trails">
+      <Section title="Trails for you" seeAllTo="/trails/recommended">
         {/* First 3 trails for now; real personalisation can come later */}
         {trails.slice(0, 3).map((trail) => (
           <TrailHero key={trail.id} trail={trail} />
@@ -67,7 +67,7 @@ export default function Explore() {
         ))}
       </Section>
 
-      <Section title="Trails for groups" seeAllTo="/trails">
+      <Section title="Trails for groups" seeAllTo="/trails/groups">
         {/* Later: filter with a "group friendly" column */}
         {trails.slice(3, 8).map((trail) => (
           <TrailCard key={trail.id} trail={trail} />
