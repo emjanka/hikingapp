@@ -67,3 +67,7 @@
   font-size: 13px;
   font-weight: 500;
 }
+/* Burgundy icons in the chips */
+.trail-hero__chip svg {
+  color: #922c50;
+}
