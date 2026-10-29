@@ -141,6 +141,16 @@
   pointer-events: none;
 }
 
+/* When the icon is a button (eye on the password field) */
+.field__icon--button {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 .field__hint {
   font-family: var(--font-heading);
   font-size: 12px;

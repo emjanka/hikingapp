@@ -44,9 +44,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  // No bottom nav during onboarding (matches Figma)
+  // No bottom nav on sign up, log in and onboarding (matches Figma)
   const { pathname } = useLocation();
-  const hideNav = pathname.startsWith("/onboarding");
+  const hideNav = ["/onboarding", "/signup", "/login"].some((page) =>
+    pathname.startsWith(page)
+  );
 
   return (
     <>

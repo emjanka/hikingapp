@@ -1,0 +1,92 @@
+/* Shared by Sign up and Log in. Field + button styles come from onboarding.css */
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 32px 24px 24px;
+}
+
+.auth__logo {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.auth__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.auth__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth__title {
+  font-size: 32px;
+  line-height: 40px;
+  color: var(--text);
+}
+
+.auth__forgot {
+  display: block;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  color: #313131;
+  cursor: pointer;
+}
+
+.auth__error,
+.auth__message {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.auth__error {
+  background: var(--plum-tint);
+  color: var(--plum);
+}
+
+.auth__message {
+  background: rgba(206, 215, 140, 0.5);
+  color: var(--text);
+}
+
+.auth__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.auth__switch {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.auth__switch a {
+  color: var(--plum);
+  text-decoration: none;
+}
+
+.onboarding__button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

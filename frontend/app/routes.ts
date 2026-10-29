@@ -8,4 +8,6 @@ export default [
   route("blog/:id", "routes/blogDetail.jsx"),
   route("profile", "routes/profile.jsx"),
   route("onboarding", "routes/onboarding.jsx"),
+  route("signup", "routes/signup.jsx"),
+  route("login", "routes/login.jsx"),
 ] satisfies RouteConfig;
