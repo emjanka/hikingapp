@@ -8,8 +8,8 @@
   gap: 12px;
 }
 
-.blog-category__header h1 {
-  font-size: 18px;
+.blog-category__header h2 {
+  font-size: 24px;
 }
 
 .blog-category__back {
