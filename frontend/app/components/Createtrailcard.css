@@ -1,0 +1,16 @@
+/* Same size as TrailCard so the row stays even */
+.create-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 280px;
+  height: 200px;
+  border-radius: 16px;
+  background: #cfd795;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
