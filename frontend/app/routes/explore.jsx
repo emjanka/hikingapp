@@ -4,6 +4,7 @@ import BuddyAvatar from "../components/BuddyAvatar";
 import TrailHero from "../components/trailHero";
 import TrailCard from "../components/TrailCard";
 import BlogCard from "../components/blogCard";
+import CreateTrailcard from "~/routes/CreateTrailCard";
 import "./explore.css";
 
 // Supabase connection details come from the .env file
