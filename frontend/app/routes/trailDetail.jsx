@@ -50,10 +50,16 @@ export default function TrailDetail() {
   const { trail } = useLoaderData();
   const navigate = useNavigate();
 
-  // "Navigate" opens the place in Google Maps (the table has no coordinates)
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${trail.name} ${trail.location}`
-  )}`;
+ // "Navigate" opens Google Maps directions to the trail's start point.
+// Uses coordinates if the table has them, otherwise the name and place.
+const destination =
+  trail.latitude && trail.longitude
+    ? `${trail.latitude},${trail.longitude}`
+    : `${trail.name} ${trail.location}`;
+
+const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+  destination
+)}`;
 
   return (
     <main className="trail-detail">
