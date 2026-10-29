@@ -1,0 +1,71 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 48px 24px 120px; /* bottom space for the bottom nav */
+  text-align: center;
+}
+
+/* Slightly tilted, like a stamp pressed by hand */
+.not-found__stamp {
+  transform: rotate(-8deg);
+  margin-bottom: 24px;
+}
+
+.not-found__code {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--plum);
+}
+
+.not-found__title {
+  margin-top: 8px;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.not-found__text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.not-found__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.not-found__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  background: var(--plum);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.not-found__link {
+  border: none;
+  background: none;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--plum);
+  text-decoration: underline;
+  cursor: pointer;
+}
