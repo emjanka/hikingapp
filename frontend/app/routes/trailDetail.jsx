@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { ArrowLeft, Clock, MapPin, Mountains, Path, Star } from "@phosphor-icons/react";
 import SaveButton from "../components/saveButton";
 import DifficultyBadge from "../components/Difficultybadge";
@@ -133,10 +133,10 @@ const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
         <p className="trail-detail__description">{trail.description}</p>
 
         <div className="trail-detail__actions">
-          {/* Placeholder: decide with the team what "Download" should do */}
-          <button type="button" className="trail-detail__btn trail-detail__btn--primary">
+          {/* Download isn't built yet → goes to the 404 page for now */}
+          <Link to="/download" className="trail-detail__btn trail-detail__btn--primary">
             Download
-          </button>
+          </Link>
           <a
             className="trail-detail__btn trail-detail__btn--secondary"
             href={mapsUrl}
