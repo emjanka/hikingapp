@@ -43,7 +43,11 @@ export default function LogIn() {
 
   return (
     <main className="auth">
-      <p className="auth__logo">LOGO</p>
+       <img
+        src="/images/foresterpurple.svg"
+        alt="Forester"
+        className="auth__logo-image"
+      />
 
       <form className="auth__form" onSubmit={handleSubmit}>
         <div className="auth__fields">

@@ -90,3 +90,9 @@
   opacity: 0.6;
   cursor: default;
 }
+
+.auth__logo-image {
+  display: block;
+  height: 44px;
+  width: auto;
+}

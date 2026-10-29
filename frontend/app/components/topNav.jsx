@@ -1,12 +1,10 @@
 import { Link, useLocation } from "react-router";
-import {
-  HeartStraightIcon,
-  MagnifyingGlassIcon,
-  SlidersHorizontalIcon,
-  PencilLineIcon,
-} from "@phosphor-icons/react";
+import { HeartStraightIcon } from "@phosphor-icons/react/dist/csr/HeartStraight";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
+import { SlidersHorizontalIcon } from "@phosphor-icons/react/dist/csr/SlidersHorizontal";
 import "./topNav.css";
 
+// Pages where the top nav should not show
 const hiddenOn = [
   /^\/blog\/\d+$/,
   /^\/trails\/\d+$/,
@@ -15,6 +13,7 @@ const hiddenOn = [
   /^\/onboarding/,
 ];
 
+// The header at the top of the app, it changes depending on the page
 export default function TopNav() {
   const { pathname } = useLocation();
 
@@ -22,10 +21,9 @@ export default function TopNav() {
     return null;
   }
 
+  // Profile has no search bar, and the saved page has a green heart
   const isProfile = pathname === "/profile";
   const isSaved = pathname === "/saved";
-  // No search bar on Profile and the stamp collection (matches Figma)
-  const hideSearch = isProfile || pathname === "/stamps";
 
   return (
     <header className="top-nav">
@@ -38,13 +36,13 @@ export default function TopNav() {
           />
         </Link>
         {isProfile ? (
-          <Link
-            to="/onboarding"
+          <button
+            type="button"
             className="top-nav__icon-button"
             aria-label="Edit profile"
           >
-            <PencilLineIcon size={28} />
-          </Link>
+            <img src="/images/edit-profile.svg" alt="" width="28" height="28" />
+          </button>
         ) : (
           <Link
             to="/saved"
@@ -59,7 +57,7 @@ export default function TopNav() {
           </Link>
         )}
       </div>
-      {!hideSearch && (
+      {!isProfile && (
         <div className="top-nav__search">
           <MagnifyingGlassIcon size={18} />
           <input type="search" placeholder="Search trails or articles..." />

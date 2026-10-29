@@ -1,5 +1,5 @@
 import { useLoaderData, useNavigate } from "react-router";
-import { ArrowLeftIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/csr/ArrowLeft";
 import BlogCard from "../components/blogCard";
 import TrailCard from "../components/TrailCard";
 import SavedEmpty from "../components/savedEmpty";
@@ -14,7 +14,9 @@ const headers = {
   Authorization: `Bearer ${supabaseKey}`,
 };
 
+// Gets the saved rows from one Supabase table
 async function fetchSaved(table, ids) {
+  // Nothing saved, so no need to ask Supabase
   if (ids.length === 0) {
     return [];
   }
@@ -31,6 +33,7 @@ async function fetchSaved(table, ids) {
   return response.json();
 }
 
+// Loads the saved trails and blogs before the page shows
 export async function clientLoader() {
   const [trails, blogs] = await Promise.all([
     fetchSaved("trails", getSavedIds("trail")),
@@ -40,6 +43,7 @@ export async function clientLoader() {
   return { trails, blogs };
 }
 
+// The saved page, what it shows depends on what is saved
 export default function Saved() {
   const { trails, blogs } = useLoaderData();
   const navigate = useNavigate();
@@ -59,6 +63,7 @@ export default function Saved() {
         >
           <ArrowLeftIcon size={20} />
         </button>
+        {/* The title changes when nothing is saved */}
         <h1>{nothingSaved ? "Saved trails and blogs" : "Saved Trails"}</h1>
       </div>
 

@@ -13,6 +13,7 @@ const headers = {
   Authorization: `Bearer ${supabaseKey}`,
 };
 
+// Loads the blog, its product cards and other blogs at the same time
 export async function clientLoader({ params }) {
   const [blogResponse, productsResponse, relatedResponse] = await Promise.all([
     fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=eq.${params.id}`, { headers }),
@@ -27,9 +28,11 @@ export async function clientLoader({ params }) {
     throw new Error("Could not load the blog");
   }
 
+  // Supabase gives a list, so take the first blog
   const blogs = await blogResponse.json();
   const blog = blogs[0];
 
+  // Show a 404 page if the blog does not exist
   if (!blog) {
     throw new Response("Blog not found", { status: 404 });
   }
@@ -40,16 +43,20 @@ export async function clientLoader({ params }) {
   return { blog, products, related };
 }
 
+// The blog page with the article, product cards and more blogs
 export default function BlogDetail() {
   const { blog, products, related } = useLoaderData();
 
+  // Shows the date like "Oct 2026"
   const date = new Date(blog.published_at).toLocaleDateString("en-GB", {
     month: "short",
     year: "numeric",
   });
 
+  // Each line of the article becomes a paragraph or a heading
   const paragraphs = blog.body.split("\n").filter((line) => line.trim() !== "");
 
+  // Finds the product cards that go after this line
   function productsAfter(index) {
     return products.filter(
       (product) => Math.min(product.position, paragraphs.length) - 1 === index
@@ -65,6 +72,7 @@ export default function BlogDetail() {
         <div className="blog-detail__body">
           {paragraphs.map((paragraph, index) => (
             <div key={index}>
+              {/* Lines starting with ## are headings */}
               {paragraph.startsWith("## ") ? (
                 <h2>{paragraph.slice(3)}</h2>
               ) : (
@@ -76,6 +84,7 @@ export default function BlogDetail() {
             </div>
           ))}
         </div>
+        {/* Only show the note if the article has product cards */}
         {products.length > 0 && (
           <p className="blog-detail__disclosure">
             Some links are sponsored or affiliate links. We may earn a small
