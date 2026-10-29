@@ -17,7 +17,10 @@ export async function clientLoader({ params }) {
   const [blogResponse, productsResponse, relatedResponse] = await Promise.all([
     fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=eq.${params.id}`, { headers }),
     fetch(`${supabaseUrl}/rest/v1/blog_products?select=*&blog_id=eq.${params.id}`, { headers }),
-    fetch(`${supabaseUrl}/rest/v1/blogs?select=*&id=neq.${params.id}&limit=6`, { headers }),
+    fetch(
+      `${supabaseUrl}/rest/v1/blogs?select=id,title,category,image_url,read_time&id=neq.${params.id}&limit=6`,
+      { headers },
+    ),
   ]);
 
   if (!blogResponse.ok || !productsResponse.ok || !relatedResponse.ok) {

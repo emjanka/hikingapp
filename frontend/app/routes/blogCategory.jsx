@@ -34,7 +34,7 @@ export default function BlogCategory() {
         <Link to="/blog" className="blog-category__back" aria-label="Back">
           <ArrowLeftIcon size={20} />
         </Link>
-        <h1>{category}</h1>
+        <h2>{category}</h2>
       </div>
       <div className="blog-category__grid">
         {blogs.map((blog) => (
