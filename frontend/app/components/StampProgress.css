@@ -1,0 +1,13 @@
+.stamp-progress {
+  width: 100%;
+  height: 6px;
+  border-radius: 6px;
+  background: #a1a1a1;
+  overflow: hidden;
+}
+
+.stamp-progress__fill {
+  height: 100%;
+  border-radius: 6px;
+  background: var(--plum);
+}

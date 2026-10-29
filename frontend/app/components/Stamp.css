@@ -1,14 +1,26 @@
 /*
  * The wavy stamp edge: the outer box is plum with round "bites"
- * (transparent circles) every 15px, and the inner box covers the middle
- * so the bites only show around the border.
+ * (transparent circles) along the border, and the inner box covers
+ * the middle so the bites only show around the edge.
  */
 .stamp {
-  width: 90px;
-  height: 105px;
-  padding: 5px;
+  --hole: 6px; /* size of the bites */
+  --gap: 16px; /* distance between bites */
+  padding: var(--hole);
   flex-shrink: 0;
-  background: radial-gradient(circle, transparent 4.5px, var(--plum) 5px) -7.5px -7.5px / 15px 15px;
+  background: radial-gradient(circle, transparent var(--hole), var(--plum) calc(var(--hole) + 0.5px))
+    calc(var(--gap) / -2) calc(var(--gap) / -2) / var(--gap) var(--gap);
+}
+
+/* Sizes are multiples of 16px so the bites line up nicely */
+.stamp--small {
+  width: 80px;
+  height: 96px;
+}
+
+.stamp--large {
+  width: 96px;
+  height: 112px;
 }
 
 .stamp__inner {
@@ -17,30 +29,46 @@
   align-items: center;
   gap: 4px;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 8px;
   background: var(--plum);
 }
 
+/* White frame with the light-green picture inside */
 .stamp__picture {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 7px;
+  width: 70%;
+  aspect-ratio: 4 / 3;
+  border: 3px solid var(--cream);
+  border-radius: 3px;
   background: #e6eac1;
   color: var(--plum);
 }
 
-.stamp__label {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 28px;
-  color: #e6eac1;
-  white-space: nowrap;
+.stamp__icon {
+  width: 60%;
+  height: 60%;
 }
 
-/* Stamps you haven't earned yet are faded */
+.stamp__label {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 4px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
+  color: #e6eac1;
+}
+
+.stamp--large .stamp__label {
+  font-size: 12px;
+}
+
+/* Stamps you haven't earned yet are faded pink */
 .stamp--locked {
-  opacity: 0.5;
+  opacity: 0.45;
 }

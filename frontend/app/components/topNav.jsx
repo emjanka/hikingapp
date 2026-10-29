@@ -24,6 +24,8 @@ export default function TopNav() {
 
   const isProfile = pathname === "/profile";
   const isSaved = pathname === "/saved";
+  // No search bar on Profile and the stamp collection (matches Figma)
+  const hideSearch = isProfile || pathname === "/stamps";
 
   return (
     <header className="top-nav">
@@ -57,7 +59,7 @@ export default function TopNav() {
           </Link>
         )}
       </div>
-      {!isProfile && (
+      {!hideSearch && (
         <div className="top-nav__search">
           <MagnifyingGlassIcon size={18} />
           <input type="search" placeholder="Search trails or articles..." />

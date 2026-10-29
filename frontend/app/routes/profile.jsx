@@ -5,17 +5,17 @@ import {
   FootprintsIcon,
   UsersThreeIcon,
   MedalIcon,
-  MountainsIcon,
-  SunHorizonIcon,
   ShieldCheckIcon,
   BellRingingIcon,
   SirenIcon,
   QuestionIcon,
 } from "@phosphor-icons/react";
 import Stamp from "../components/Stamp";
+import StampProgress from "../components/StampProgress";
 import SettingsRow from "../components/SettingsRow";
 import TrailCard from "../components/TrailCard";
 import { loadProfile } from "../lib/profileStorage";
+import { allStamps, getEarnedIds, STAMPS_FOR_DISCOUNT } from "../lib/stamps";
 import "./profile.css";
 
 // Example data from Figma, shown until the user has done the onboarding
@@ -31,14 +31,6 @@ const exampleProfile = {
 
 // TODO: replace with real data from Supabase when there's a table for it
 const stats = { trails: 10, buddies: 4, badges: 5 };
-
-const stamps = [
-  { label: "First steps", Icon: FootprintsIcon },
-  { label: "Hill seeker", Icon: MountainsIcon },
-  { label: "Golden hour", Icon: SunHorizonIcon },
-  { label: "Stamp" },
-  { label: "Stamp" },
-];
 
 
 // Supabase connection details come from the .env file
@@ -111,18 +103,8 @@ export default function Profile() {
         </div>
       </section>
 
-      {/* Stamp collection */}
-      <section className="profile__section">
-        <div className="profile__heading-row">
-          <h2 className="profile__heading">Stamp collection</h2>
-          <Link to="#" className="profile__small-link">Redeem code &gt;</Link>
-        </div>
-        <div className="profile__scroll-row">
-          {stamps.map((stamp, i) => (
-            <Stamp key={i} label={stamp.label} Icon={stamp.Icon} />
-          ))}
-        </div>
-      </section>
+      {/* Your stamps (full page: /stamps) */}
+      <YourStamps />
 
       {/* Hike history */}
       <section className="profile__section">
@@ -166,5 +148,35 @@ function Stat({ Icon, number, label }) {
       <span className="profile__stat-number">{number}</span>
       <span className="profile__stat-label">{label}</span>
     </div>
+  );
+}
+
+// Earned stamps first, then 2 locked "Next stamp" ones (like Figma)
+function YourStamps() {
+  const earnedIds = getEarnedIds();
+  const earned = allStamps.filter((stamp) => earnedIds.includes(stamp.id));
+  const count = Math.min(earned.length, STAMPS_FOR_DISCOUNT);
+
+  return (
+    <section className="profile__section">
+      <div className="profile__heading-row">
+        <h2 className="profile__heading">Your stamps</h2>
+        <Link to="/stamps" className="profile__small-link">See all &gt;</Link>
+      </div>
+      <p className="profile__subtext">Complete trails to earn stamps and get discounts</p>
+
+      <Link to="/stamps" className="profile__scroll-row profile__stamps">
+        {earned.map((stamp) => (
+          <Stamp key={stamp.id} label={stamp.label} Icon={stamp.Icon} />
+        ))}
+        <Stamp label="Next stamp" locked />
+        <Stamp label="Next stamp" locked />
+      </Link>
+
+      <StampProgress value={count} max={STAMPS_FOR_DISCOUNT} />
+      <p className="profile__subtext profile__subtext--small">
+        {count} of {STAMPS_FOR_DISCOUNT} stamps to unlock your next discount
+      </p>
+    </section>
   );
 }
