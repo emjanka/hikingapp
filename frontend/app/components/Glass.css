@@ -1,0 +1,7 @@
+/* Frosted-glass panel used at the bottom of every trail card.
+   Add className="glass" to the panel; the photo shows through, blurred. */
+.glass {
+  background: rgba(45, 35, 35, 0.35);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}

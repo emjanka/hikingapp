@@ -1,47 +1,38 @@
-import { MapPin, Path, Mountains } from "@phosphor-icons/react";
 import { Link } from "react-router";
+import { MapPin, Path, Mountains } from "@phosphor-icons/react";
 import SaveButton from "./saveButton";
 import DifficultyBadge from "./Difficultybadge";
+import "./glass.css";
 import "./smallTrailCard.css";
 
 /**
  * SmallTrailCard
- * The compact trail card used in the two-column "See all" lists.
- * Same content as TrailCard, just smaller.
- *
- * Props:
- *  - trail: one row from the Supabase "trails" table
- *           (uses id, name, location, level, image_url,
- *            length_km, elevation_gain)
+ * Compact card for the two-column "See all" lists.
+ * The whole card links to the detail page.
+ * Props: trail - one row of the Supabase "trails" table.
  */
 export default function SmallTrailCard({ trail }) {
   return (
     <Link to={`/trail/${trail.id}`} className="small-card">
-      <img
-        className="small-card__img"
-        src={trail.image_url}
-        alt={trail.name}
-      />
+      <img className="small-card__img" src={trail.image_url} alt={trail.name} />
 
-      {/* Save heart in the top-right corner */}
       <div className="small-card__save">
         <SaveButton type="trail" id={trail.id} />
       </div>
 
-      {/* Text sits on a dark gradient so it stays readable */}
-      <div className="small-card__info">
+      {/* Frosted-glass panel with the trail info */}
+      <div className="small-card__info glass">
         <div className="small-card__badge">
           <DifficultyBadge level={trail.level} />
         </div>
 
         <h3 className="small-card__name">{trail.name}</h3>
-
         <p className="small-card__location">
           <MapPin size={12} />
           <span>{trail.location}</span>
         </p>
 
-        {/* Distance and elevation gain, icon + number */}
+        {/* Icon + number, no box (as in the Figma) */}
         <div className="small-card__stats">
           <span className="small-card__stat">
             <Path size={14} /> {trail.length_km} km

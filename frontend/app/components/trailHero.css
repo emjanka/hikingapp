@@ -1,12 +1,12 @@
 .trail-hero {
-  display: block;            
-  color: #fff;               
-  text-decoration: none;  
   position: relative;
+  display: block;
   width: 340px;
-  height: 220px;
+  height: 230px;
   border-radius: 16px;
   overflow: hidden;
+  color: #fff;
+  text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -22,40 +22,40 @@
   right: 12px;
 }
 
-/* Dark gradient over the bottom of the photo */
+/* Glass panel at the bottom; the badge sits on its top edge */
 .trail-hero__info {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 36px 14px 12px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 12px 14px;
 }
 
-.trail-hero__title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+.trail-hero__badge {
+  position: absolute;
+  top: -14px;
+  right: 14px;
 }
 
 .trail-hero__name {
   margin: 0;
+  padding-right: 70px; /* keeps long names clear of the badge */
   font-size: 20px;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .trail-hero__location {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin: 2px 0 0;
+  margin: 2px 0 8px;
   font-size: 13px;
-  font-weight: 400;
 }
 
 .trail-hero__chips {
   display: flex;
   gap: 8px;
-  margin-top: 8px;
 }
 
 .trail-hero__chip {
@@ -69,7 +69,7 @@
   font-size: 13px;
   font-weight: 500;
 }
-/* Burgundy icons in the chips */
+
 .trail-hero__chip svg {
   color: #922c50;
 }

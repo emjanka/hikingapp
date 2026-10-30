@@ -1,16 +1,13 @@
-/* Fills its grid column; the height follows the Figma proportions */
 .small-card {
   position: relative;
+  display: block;
   width: 100%;
   aspect-ratio: 197 / 230;
   border-radius: 14px;
   overflow: hidden;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  display: block;
   text-decoration: none;
-  position: relative;
-  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .small-card__img {
@@ -25,24 +22,21 @@
   right: 10px;
 }
 
-/* Dark gradient over the bottom of the photo */
 .small-card__info {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 32px 10px 10px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  padding: 10px;
 }
 
-/* Difficulty badge sits on the right, just above the name */
 .small-card__badge {
   position: absolute;
-  top: 4px;
+  top: -12px;
   right: 10px;
 }
 
-/* One line only; long names get "..." instead of breaking the layout */
 .small-card__name {
   margin: 0;
+  padding-right: 56px;
   font-size: 15px;
   font-weight: 600;
   white-space: nowrap;
@@ -56,7 +50,6 @@
   gap: 4px;
   margin: 2px 0 6px;
   font-size: 12px;
-  font-weight: 400;
 }
 
 .small-card__location span {
@@ -67,25 +60,19 @@
 
 .small-card__stats {
   display: flex;
-  gap: 6px;
+  gap: 10px;
   font-size: 12px;
   font-weight: 500;
 }
 
-/* Whitish rounded box around each number */
 .small-card__stat {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #1a1a1a;
   white-space: nowrap;
 }
 
-/* Burgundy icons */
+/* Lighter burgundy so the icons stay visible on the dark glass */
 .small-card__stat svg {
-  color: #922c50;
-  flex-shrink: 0;
+  color: #d46a99;
 }

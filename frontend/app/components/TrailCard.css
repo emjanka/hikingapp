@@ -1,15 +1,13 @@
 .trail-card {
   position: relative;
+  display: block;
   width: 280px;
   height: 200px;
   border-radius: 16px;
   overflow: hidden;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  display: block;
   text-decoration: none;
-  position: relative;
-  width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .trail-card__img {
@@ -27,21 +25,23 @@
 .trail-card__info {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 36px 12px 12px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  padding: 10px 12px;
 }
 
-.trail-card__title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+.trail-card__badge {
+  position: absolute;
+  top: -14px;
+  right: 12px;
 }
 
 .trail-card__name {
   margin: 0;
+  padding-right: 64px;
   font-size: 16px;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .trail-card__location {
@@ -50,7 +50,6 @@
   gap: 4px;
   margin: 2px 0 8px;
   font-size: 13px;
-  font-weight: 400;
 }
 
 .trail-card__chips {
@@ -69,7 +68,7 @@
   font-size: 13px;
   font-weight: 500;
 }
-/* Burgundy icons in the chips */
+
 .trail-card__chip svg {
   color: #922c50;
 }
