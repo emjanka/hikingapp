@@ -4,7 +4,7 @@ import BuddyAvatar from "../components/BuddyAvatar";
 import TrailHero from "../components/trailHero";
 import TrailCard from "../components/TrailCard";
 import BlogCard from "../components/blogCard";
-import Createtrailcard from "../components/Createtrailcard";
+import CreateTrailCard from "../components/Createtrailcard";
 import "./explore.css";
 
 // Supabase connection details come from the .env file
@@ -69,11 +69,17 @@ export default function Explore() {
       </Section>
 
       <Section title="Trails for groups" seeAllTo="/trails/groups">
-        {/* Later: filter with a "group friendly" column */}
-        {trails.slice(3, 8).map((trail) => (
-          <TrailCard key={trail.id} trail={trail} />
-        ))}
-      </Section>
+        {trails.slice(3, 5).map((trail) => (
+        <TrailCard key={trail.id} trail={trail} />
+      ))}
+
+        {/* Right after the first 2 group trails */}
+        <CreateTrailCard />
+
+         {trails.slice(5, 8).map((trail) => (
+        <TrailCard key={trail.id} trail={trail} />
+      ))}
+    </Section>
     </main>
   );
 }
