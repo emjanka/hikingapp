@@ -35,10 +35,10 @@ export default function SmallTrailCard({ trail }) {
         {/* Icon + number, no box (as in the Figma) */}
         <div className="small-card__stats">
           <span className="small-card__stat">
-            <Path size={14} /> {trail.length_km} km
+            <Path size={16} /> {trail.length_km} km
           </span>
           <span className="small-card__stat">
-            <Mountains size={14} /> + {trail.elevation_gain} m
+            <Mountains size={16} /> + {trail.elevation_gain} m
           </span>
         </div>
       </div>

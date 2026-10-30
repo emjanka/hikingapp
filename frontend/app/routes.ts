@@ -15,6 +15,9 @@ export default [
   route("trails/:list", "routes/trailList.jsx"),
   route("trail/:id", "routes/trailDetail.jsx"),
   route("create-trail", "routes/createTrail.jsx"),
+  route("results", "routes/results.jsx"),
+  route("buddies", "routes/buddies.jsx"),
+  route("buddy/:id", "routes/buddy.jsx"),
   // Must stay last: catches every address that doesn't exist → 404 page
   route("*", "routes/notFound.jsx"),
 ] satisfies RouteConfig;

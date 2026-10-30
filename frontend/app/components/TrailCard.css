@@ -65,7 +65,7 @@
   border-radius: 999px;
   background: #fff;
   color: #1a1a1a;
-  font-size: 13px;
+  font-size: 15px; /* bigger for readability (heuristic #8) */
   font-weight: 500;
 }
 

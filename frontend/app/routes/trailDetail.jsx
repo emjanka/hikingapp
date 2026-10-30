@@ -75,7 +75,10 @@ const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
           type="button"
           className="trail-detail__back"
           aria-label="Back"
-          onClick={() => navigate(-1)}
+          onClick={() =>
+            // Back to wherever the user came from; Explore if opened from a link
+            window.history.state?.idx > 0 ? navigate(-1) : navigate("/")
+          }
         >
           <ArrowLeft size={22} />
         </button>
@@ -88,9 +91,10 @@ const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
       {/* White sheet that overlaps the bottom of the photo */}
       <div className="trail-detail__sheet">
         <header className="trail-detail__header">
+          {/* Badge above the title, so long names don't squash it (heuristic #8) */}
           <div className="trail-detail__title-row">
-            <h1 className="trail-detail__name">{trail.name}</h1>
             <DifficultyBadge level={trail.level} />
+            <h1 className="trail-detail__name">{trail.name}</h1>
           </div>
 
           <p className="trail-detail__meta">

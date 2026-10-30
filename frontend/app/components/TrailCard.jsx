@@ -33,10 +33,10 @@ export default function TrailCard({ trail }) {
 
         <div className="trail-card__chips">
           <span className="trail-card__chip">
-            <Path size={16} /> {trail.length_km} km
+            <Path size={18} /> {trail.length_km} km
           </span>
           <span className="trail-card__chip">
-            <Mountains size={16} /> + {trail.elevation_gain} m
+            <Mountains size={18} /> + {trail.elevation_gain} m
           </span>
         </div>
       </div>

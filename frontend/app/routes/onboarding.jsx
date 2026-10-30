@@ -25,6 +25,7 @@ const levels = [
 ];
 
 const TOTAL_STEPS = 4;
+const ABOUT_MAX = 300; // max characters for "About you" (shown as a counter)
 
 const emptyProfile = {
   photo: "",
@@ -119,10 +120,10 @@ export default function Onboarding() {
               <input type="file" accept="image/*" onChange={handlePhoto} hidden />
             </label>
 
-            <Field label="Name">
+            <Field label="First and last name">
               <input
                 className="field__input"
-                placeholder="First and Last name"
+                placeholder="e.g. Sofia Andersen"
                 value={profile.name}
                 onChange={(e) => updateField("name", e.target.value)}
                 required
@@ -141,11 +142,15 @@ export default function Onboarding() {
               />
             </Field>
 
-            <Field label="About you">
+            <Field
+              label="About you"
+              hint={`${(profile.about || "").length}/${ABOUT_MAX} characters`}
+            >
               <textarea
                 className="field__input field__input--textarea"
-                placeholder="Who are you? What do you love about hiking, and what are you looking for in a hiking buddy?"
+                placeholder="Tell us about your hiking experience and favorite trails"
                 rows={4}
+                maxLength={ABOUT_MAX}
                 value={profile.about}
                 onChange={(e) => updateField("about", e.target.value)}
               />
