@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { MapPin, Path, Mountains } from "@phosphor-icons/react";
 import SaveButton from "./saveButton";
 import DifficultyBadge from "./Difficultybadge";
-import "./glass.css";
+import "./Glass.css";
 import "./smallTrailCard.css";
 
 /**

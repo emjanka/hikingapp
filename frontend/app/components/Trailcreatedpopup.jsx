@@ -1,5 +1,5 @@
 import { Mountains, X } from "@phosphor-icons/react";
-import "./trailCreatedPopup.css";
+import "./TrailCreatedPopup.css";
 
 /**
  * TrailCreatedPopup
