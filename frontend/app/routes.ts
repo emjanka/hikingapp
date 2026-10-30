@@ -18,6 +18,7 @@ export default [
   route("results", "routes/results.jsx"),
   route("buddies", "routes/buddies.jsx"),
   route("buddy/:id", "routes/buddy.jsx"),
+  route("settings/:section", "routes/settings.jsx"),
   // Must stay last: catches every address that doesn't exist → 404 page
   route("*", "routes/notFound.jsx"),
 ] satisfies RouteConfig;

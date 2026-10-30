@@ -121,11 +121,11 @@ export default function Profile() {
         <h2 className="profile__heading">Settings</h2>
         <div className="profile__settings">
           <SettingsRow Icon={PencilSimpleIcon} title="Edit profile" text="Update your photo, bio, age, and hiking level" to="/onboarding" />
-          <SettingsRow Icon={ShieldCheckIcon} title="Privacy & safety" text="Manage profile visibility, location sharing" />
-          <SettingsRow Icon={BellRingingIcon} title="Notifications" text="Hiking invitations, messages, and trail updates" />
-          <SettingsRow Icon={UsersThreeIcon} title="Hiking preferences" text="Preferred difficulty, distance, and group size" />
-          <SettingsRow Icon={SirenIcon} title="Emergency information" text="Emergency contact and essential safety details" />
-          <SettingsRow Icon={QuestionIcon} title="Help & about" text="FAQs, contact, community guidelines, and app version" />
+          <SettingsRow Icon={ShieldCheckIcon} title="Privacy & safety" text="Manage profile visibility, location sharing" to="/settings/privacy" />
+          <SettingsRow Icon={BellRingingIcon} title="Notifications" text="Hiking invitations, messages, and trail updates" to="/settings/notifications" />
+          <SettingsRow Icon={UsersThreeIcon} title="Hiking preferences" text="Preferred difficulty, distance, and group size" to="/settings/preferences" />
+          <SettingsRow Icon={SirenIcon} title="Emergency information" text="Emergency contact and essential safety details" to="/settings/emergency" />
+          <SettingsRow Icon={QuestionIcon} title="Help & about" text="FAQs, contact, community guidelines, and app version" to="/settings/help" />
         </div>
       </section>
     </main>

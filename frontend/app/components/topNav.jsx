@@ -39,13 +39,14 @@ export default function TopNav() {
           />
         </Link>
         {isProfile ? (
-          <button
-            type="button"
+          // Edit profile → opens onboarding with your answers filled in
+          <Link
+            to="/onboarding"
             className="top-nav__icon-button"
             aria-label="Edit profile"
           >
             <img src="/images/profileEdit.svg" alt="" width="28" height="28" />
-          </button>
+          </Link>
         ) : (
           <Link
             to="/saved"
