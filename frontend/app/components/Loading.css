@@ -1,0 +1,58 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px;
+  color: #191919;
+}
+
+.footsteps {
+  display: flex;
+  gap: 8px;
+}
+
+.footstep {
+  font-size: 30px;
+  color: #700144;
+  opacity: 0;
+  animation: walking 1.5s infinite;
+}
+
+.step-1 {
+  animation-delay: 0s;
+}
+
+.step-2 {
+  animation-delay: 0.4s;
+}
+
+.step-3 {
+  animation-delay: 0.8s;
+}
+
+@keyframes walking {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(5px) rotate(-15deg);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(-3px) rotate(0deg);
+  }
+}
+
+.loading-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #FFFDF6;
+  z-index: 9999;
+  color: #191919;
+}

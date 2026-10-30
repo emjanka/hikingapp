@@ -11,6 +11,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Loading from "./components/Loading";
 import BottomNav from "./components/bottomNav";
 import TopNav from "./components/topNav";
 import { supabase } from "./lib/supabaseClient";
@@ -82,7 +83,7 @@ export default function App() {
 }
 
 export function HydrateFallback() {
-  return <p>Loading...</p>;
+  return <Loading />;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
