@@ -48,6 +48,7 @@ export default function Explore() {
         {buddies.map((buddy) => (
           <BuddyAvatar
             key={buddy.id}
+            id={buddy.id}
             name={buddy.buddies_name}
             imageUrl={buddy.avatar_url}
           />

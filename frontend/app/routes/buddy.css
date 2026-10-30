@@ -1,0 +1,63 @@
+/* Extra styles for a buddy's profile; the rest comes from profile.css */
+
+.buddy-page__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.buddy-page__back {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* "Invite to hike" + "Message" */
+.buddy-page__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.buddy-page__invite,
+.buddy-page__message {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  border-radius: 15px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.buddy-page__invite {
+  border: none;
+  background: var(--plum);
+  color: #fff;
+}
+
+.buddy-page__invite:disabled {
+  background: var(--sage-dark);
+  color: var(--text);
+  cursor: default;
+}
+
+.buddy-page__message {
+  border: 1px solid var(--plum);
+  background: transparent;
+  color: var(--plum);
+}
+
+.buddy-page__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
