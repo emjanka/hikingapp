@@ -135,7 +135,7 @@ const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
         <div className="trail-detail__actions">
           {/* Download isn't built yet → goes to the 404 page for now */}
           <Link to="/download" className="trail-detail__btn trail-detail__btn--primary">
-            Download
+            Download map
           </Link>
           <a
             className="trail-detail__btn trail-detail__btn--secondary"

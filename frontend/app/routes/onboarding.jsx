@@ -122,7 +122,7 @@ export default function Onboarding() {
             <Field label="Name">
               <input
                 className="field__input"
-                placeholder="First name"
+                placeholder="First and Last name"
                 value={profile.name}
                 onChange={(e) => updateField("name", e.target.value)}
                 required
