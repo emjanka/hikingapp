@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import { HeartStraightIcon } from "@phosphor-icons/react/dist/csr/HeartStraight";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
 import { SlidersHorizontalIcon } from "@phosphor-icons/react/dist/csr/SlidersHorizontal";
+import FilterSheet from "./FilterSheet";
 import "./topNav.css";
 
 // Pages where the top nav should not show
@@ -16,6 +18,7 @@ const hiddenOn = [
 // The header at the top of the app, it changes depending on the page
 export default function TopNav() {
   const { pathname } = useLocation();
+  const [showFilters, setShowFilters] = useState(false);
 
   if (hiddenOn.some((pattern) => pattern.test(pathname))) {
     return null;
@@ -41,7 +44,7 @@ export default function TopNav() {
             className="top-nav__icon-button"
             aria-label="Edit profile"
           >
-            <img src="/images/edit-profile.svg" alt="" width="28" height="28" />
+            <img src="/images/profileEdit.svg" alt="" width="28" height="28" />
           </button>
         ) : (
           <Link
@@ -61,11 +64,13 @@ export default function TopNav() {
         <div className="top-nav__search">
           <MagnifyingGlassIcon size={18} />
           <input type="search" placeholder="Search trails or articles..." />
-          <button type="button" aria-label="Filters">
+          {/* Opens the Filters sheet (components/FilterSheet.jsx) */}
+          <button type="button" aria-label="Filters" onClick={() => setShowFilters(true)}>
             <SlidersHorizontalIcon size={18} />
           </button>
         </div>
       )}
+      {showFilters && <FilterSheet onClose={() => setShowFilters(false)} />}
     </header>
   );
 }

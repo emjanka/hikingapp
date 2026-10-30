@@ -118,9 +118,12 @@
   outline: 2px solid var(--plum);
 }
 
+/* "About you": a bigger box (about 4 lines) so people see they can write more */
 .field__input--textarea {
+  min-height: 104px;
+  line-height: 1.4;
   resize: vertical;
-  field-sizing: content; /* grows while you type (newer browsers) */
+  field-sizing: content; /* keeps growing while you type (newer browsers) */
 }
 
 /* Input with the map pin on the right */

@@ -1,0 +1,32 @@
+.buddies {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 120px; /* bottom space for the bottom nav */
+}
+
+.buddies__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.buddies__back {
+  display: flex;
+  color: var(--text);
+}
+
+.buddies__title {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* 3 buddies per row */
+.buddies__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  row-gap: 24px;
+}

@@ -144,8 +144,8 @@ export default function Onboarding() {
             <Field label="About you">
               <textarea
                 className="field__input field__input--textarea"
-                placeholder="Who are you?"
-                rows={1}
+                placeholder="Who are you? What do you love about hiking, and what are you looking for in a hiking buddy?"
+                rows={4}
                 value={profile.about}
                 onChange={(e) => updateField("about", e.target.value)}
               />

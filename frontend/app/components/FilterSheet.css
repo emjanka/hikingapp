@@ -1,0 +1,131 @@
+/* Dark background behind the sheet; the sheet sits at the bottom */
+.filter-sheet__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.filter-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 92dvh;
+  overflow-y: auto;
+  padding: 24px 16px 24px;
+  border-radius: 15px 15px 0 0;
+  background: #fff;
+  animation: filter-sheet-up 0.25s ease-out;
+}
+
+@keyframes filter-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* "Filters" + "Clear all" + X */
+.filter-sheet__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filter-sheet__title {
+  flex: 1;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.filter-sheet__clear {
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--plum);
+  cursor: pointer;
+}
+
+.filter-sheet__close {
+  display: flex;
+  border: none;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.filter-sheet__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter-sheet__group-title {
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filter-sheet__divider {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--plum-tint);
+}
+
+/* One option: square checkbox + label */
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.filter-option--on {
+  background: #decad6;
+}
+
+.filter-option__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--plum);
+  border-radius: 5px;
+  color: var(--plum);
+}
+
+.filter-sheet__show {
+  height: 45px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 15px;
+  background: var(--plum);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
