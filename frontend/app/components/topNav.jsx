@@ -41,7 +41,7 @@ export default function TopNav() {
             className="top-nav__icon-button"
             aria-label="Edit profile"
           >
-            <img src="/images/edit-profile.svg" alt="" width="28" height="28" />
+            <img src="/images/profileEdit.svg" alt="" width="28" height="28" />
           </button>
         ) : (
           <Link
