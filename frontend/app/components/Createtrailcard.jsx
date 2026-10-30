@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { PlusCircle } from "@phosphor-icons/react";
-import "./createTrailCard.css";
+import "./Createtrailcard.css";
 
 /**
  * CreateTrailCard
